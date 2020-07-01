@@ -1,0 +1,44 @@
+// Colors
+$highlight: #1f5081 !default;
+$background: #eff0f1 !default;
+
+$text: #212121 !default;
+$text-inverted: #f8f9fa !default;
+$text-muted: lighten($text, 35%) !default;
+
+$link: $highlight !default;
+$link-hover: darken($highlight, 15%) !default;
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Work+Sans:wght@300;400;700&display=swap");
+
+
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@200;300;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+
+$font-family: "Blinker", sans-serif !default;
+$font-family-monospace: "Source Code Pro", monospace !default;
+$font-size: .9375em !default;
+$font-weight-thin: 200 !default;
+$font-weight-normal: 300 !default;
+$font-weight-bold: 600 !default;
+$line-height: 1.35em !default;
+
+$headings-font-family: "Tajawal", sans-serif !default;
+$headings-font-size: $font-size * 4 !default;
+$headings-font-weight: 200 !default;
+$headings-line-height: 1em !default;
+
+
+// Margins
+$headings-margin-bottom: 0 !default;
+$paragraph-margin-bottom: 1rem !default;
+$label-margin-bottom: .5rem !default;
+
+
+// Tables
+$table-cell-padding: .75rem !default;
+$table-caption-color: $text-muted !default;

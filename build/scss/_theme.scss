@@ -1,0 +1,142 @@
+.shadow {
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, .75);
+}
+
+body {
+    display: flex;
+}
+
+main {
+    padding: 2rem 15px;
+    margin: auto;
+    display: flex;
+
+    width: 100%;
+
+    @include media-lg {
+        max-width: 1200px;
+    }
+}
+
+.photo {
+    margin: auto;
+
+    display: none;
+    flex: 1 1 0;
+
+    @include media-sm {
+        display: inherit;
+        flex: 1 1 30%;
+    }
+
+    > img {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        position: relative;
+        object-fit: cover;
+    }
+}
+
+.text {
+    margin: auto 0;
+
+    flex: 1 1 100%;
+
+    padding-left: 0;
+
+    @include media-sm {
+        flex: 1 1 70%;
+    }
+
+    @include media-sm {
+        padding-left: 2rem;
+    }
+
+    @include media-md {
+        padding-left: 4rem;
+    }
+
+    > h1 {
+        text-align: center;
+
+        font-size: $headings-font-size;
+
+        @include media-sm {
+            text-align: left;
+        }
+
+        @include media-md {
+            font-size: $headings-font-size;
+        }
+    }
+
+    > p {
+        color: $text-muted;
+        font-style: italic;
+        font-size: $font-size * 1.25;
+        word-break: break-word;
+
+        text-align: center;
+
+        margin-left: 0;
+
+        @include media-sm {
+            text-align: left;
+        }
+
+        @include media-sm {
+            margin-left: 2rem;
+        }
+    }
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: -.5rem;
+    margin-top: 1.25rem;
+
+    > div {
+        flex: 0 0 auto;
+        margin: .5rem;
+    }
+}
+
+.links > div > a {
+    display: inline-block;
+    padding: .5rem .75rem;
+    font-weight: $font-weight-normal;
+    width: 100%;
+    color: $text-inverted;
+    text-align: center;
+    transition: background-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    font-size: $font-size * 1.25;
+
+    @include media-md {
+        font-size: $font-size * 1.5;
+    }
+
+    &.twitter {
+        @include hover-background(#1da1f2);
+    }
+
+    &.instagram {
+        @include hover-background(#8a3ab9);
+    }
+
+    &.linkedin {
+        @include hover-background(#0077b5);
+    }
+
+    &.github {
+        @include hover-background(#333333);
+    }
+
+    > svg {
+        margin-right: .5rem;
+    }
+}

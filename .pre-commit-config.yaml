@@ -1,0 +1,37 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.3.0
+      hooks:
+          - id: check-executables-have-shebangs
+          - id: check-merge-conflict
+          - id: check-case-conflict
+          - id: end-of-file-fixer
+            exclude: \.min\.(js|css)$
+          - id: mixed-line-ending
+            args: [--fix=lf]
+            exclude: \.min\.(js|css)$
+    - repo: https://github.com/paulhfischer/pre-commit-hooks
+      rev: v1.0.0
+      hooks:
+          - id: format-general
+          - id: format-web
+          - id: lint-css
+    - repo: https://github.com/digitalpulp/pre-commit-php
+      rev: 1.4.0
+      hooks:
+          - id: php-lint-all
+          - id: php-cs
+            args:
+                - --standard=PSR2
+          - id: php-cs-fixer
+            args:
+                - --using-cache false
+          - id: php-stan
+    - repo: local
+      hooks:
+          - id: build
+            name: build
+            entry: yarn run build
+            language: node
+            pass_filenames: false
+            verbose: true
