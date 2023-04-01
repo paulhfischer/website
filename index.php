@@ -40,19 +40,19 @@
             <h1>Paul Fischer</h1>
 
             <p>
-                Student (BSc Mathematics at
+                Medical Student (at
                 <a
                     target="_blank"
-                    href="https://www.tum.de/"
+                    href="https://www.uni-wuerzburg.de/startseite/"
                 >
-                    TU Munich
+                    Julius-Maximilians-Universität of Würzburg
                 </a>
                 ) | Located in
                 <a
                     target="_blank"
-                    href="https://www.google.com/maps/place/85748+Garching/"
+                    href="https://www.google.com/maps/place/97082+Würzburg/"
                 >
-                    Garching
+                    Würzburg
                 </a>
                 | <?php echo date_diff(date_create('2000-01-03'), date_create('today'))->y; ?> years
                 old
