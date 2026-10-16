@@ -1,19 +1,21 @@
+@use 'sass:color';
+
 @mixin media-sm {
-    @media (min-width: 710px) {
-        @content
-  ;}
+    @media (width >= 710px) {
+        @content;
+    }
 }
 
 @mixin media-md {
-    @media (min-width: 920px) {
-        @content
-  ;}
+    @media (width >= 920px) {
+        @content;
+    }
 }
 
 @mixin media-lg {
-    @media (min-width: 1200px) {
-        @content
-  ;}
+    @media (width >= 1200px) {
+        @content;
+    }
 }
 
 @mixin hover-background($color) {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,21 +9,10 @@
     >
 
     <link
-        rel="shortcut icon"
-        type="image/x-icon"
-        href="images/favicon.ico"
-    >
-    <link
         rel="stylesheet"
         type="text/css"
         href="styles/style.min.css"
     >
-
-    <script
-        data-search-pseudo-elements
-        type="text/javascript"
-        src="scripts/fontawesome.min.js"
-    ></script>
 
     <title>Paul Fischer</title>
 </head>
@@ -33,7 +22,7 @@
         <div class="photo shadow">
             <img
                 src="images/photo.jpg"
-                alt="photo"
+                alt="Paul Fischer"
             >
         </div>
         <div class="text">
@@ -42,11 +31,15 @@
             <p>
                 Medical Student at <a
                     target="_blank"
+                    rel="noopener noreferrer"
                     href="https://www.uni-wuerzburg.de/startseite/"
                 >Julius-Maximilians-Universität of Würzburg</a> | Located in <a
                     target="_blank"
+                    rel="noopener noreferrer"
                     href="https://www.google.com/maps/place/97082+Würzburg/"
-                >Würzburg</a> | <?php echo date_diff(date_create('2000-01-03'), date_create('today'))->y; ?> years old
+                >Würzburg</a> | <?= new DateTimeImmutable('2000-01-03')->diff(
+                    new DateTimeImmutable('today', new DateTimeZone('Europe/Berlin')),
+                )->y ?> years old
             </p>
 
             <div class="links">
@@ -55,8 +48,9 @@
                         class="twitter"
                         href="https://twitter.com/paulhfischer/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-twitter"></i>Twitter
+                        <img src="images/icons/twitter.svg" alt="" aria-hidden="true">Twitter
                     </a>
                 </div>
                 <div>
@@ -64,8 +58,9 @@
                         class="instagram"
                         href="https://www.instagram.com/paulhfischer/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-instagram"></i>Instagram
+                        <img src="images/icons/instagram.svg" alt="" aria-hidden="true">Instagram
                     </a>
                 </div>
                 <div>
@@ -73,8 +68,9 @@
                         class="linkedin"
                         href="https://www.linkedin.com/in/paulhfischer/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-linkedin"></i>LinkedIn
+                        <img src="images/icons/linkedin.svg" alt="" aria-hidden="true">LinkedIn
                     </a>
                 </div>
                 <div>
@@ -82,8 +78,9 @@
                         class="github"
                         href="https://github.com/paulhfischer/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <i class="fab fa-github"></i>GitHub
+                        <img src="images/icons/github.svg" alt="" aria-hidden="true">GitHub
                     </a>
                 </div>
             </div>

@@ -1,4 +1,2 @@
-@import 'variables';
-@import 'mixins';
-@import 'normalize';
-@import 'theme';
+@use 'normalize';
+@use 'theme';

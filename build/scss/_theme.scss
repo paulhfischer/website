@@ -1,3 +1,6 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
 .shadow {
     box-shadow: inset 0 0 15px rgb(0 0 0 / 75%);
 }
@@ -70,7 +73,7 @@ main {
         color: $text-muted;
         font-style: italic;
         font-size: $font-size * 1.25;
-        word-break: break-word;
+        overflow-wrap: anywhere;
         text-align: center;
         margin-left: 0;
 
@@ -88,23 +91,25 @@ main {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin: -.5rem;
+    margin: -0.5rem;
     margin-top: 1.25rem;
 
     > div {
         flex: 0 0 auto;
-        margin: .5rem;
+        margin: 0.5rem;
     }
 }
 
 .links > div > a {
     display: inline-block;
-    padding: .5rem .75rem;
+    padding: 0.5rem 0.75rem;
     font-weight: $font-weight-normal;
     width: 100%;
     color: $text-inverted;
     text-align: center;
-    transition: background-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
     font-size: $font-size * 1.25;
 
     @include media-md {
@@ -112,7 +117,7 @@ main {
     }
 
     &.twitter {
-        @include hover-background(#1da1f2);
+        @include hover-background(#1676ad);
     }
 
     &.instagram {
@@ -127,7 +132,9 @@ main {
         @include hover-background(#333333);
     }
 
-    > svg {
-        margin-right: .5rem;
+    > img {
+        width: auto;
+        height: 1em;
+        margin-right: 0.5rem;
     }
 }

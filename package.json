@@ -1,37 +1,42 @@
 {
-    "name": "skriptentool",
+    "name": "paul-fischer-website",
     "version": "1.0.0",
     "private": true,
-    "author": {
-        "name": "Paul Fischer",
-        "email": "paul.fischer@mailbox.org"
-    },
-    "scripts": {
-        "build": "webpack --mode production --config config.js",
-        "watch": "webpack --watch --mode development --config config.js"
-    },
-    "prettier": "@paulhfischer/prettier-config",
-    "stylelint": {
-        "extends": [
-            "@paulhfischer/stylelint-config"
-        ]
+    "type": "module",
+    "author": "Paul Fischer <paul.fischer@mailbox.org>",
+    "engines": {
+        "node": "^22.13.0 || >=24",
+        "npm": ">=10"
     },
     "browserslist": [
         ">0.2%",
         "not dead"
     ],
+    "scripts": {
+        "build": "node tools/build.js",
+        "watch": "node --watch-path=build/scss --watch-path=tools tools/build.js",
+        "serve": "php -S 127.0.0.1:8080 -t .",
+        "lint": "eslint --max-warnings=0 . && stylelint \"build/scss/**/*.scss\" && php -l index.php",
+        "format": "prettier --write package.json README.md *.mjs .pre-commit-config.yaml build/scss tools index.php",
+        "format:check": "prettier --check package.json README.md *.mjs .pre-commit-config.yaml build/scss tools index.php",
+        "check": "npm run build && npm run lint && npm run format:check"
+    },
+    "devDependencies": {
+        "@paulhfischer/eslint-config-javascript": "git+https://github.com/paulhfischer/eslint-config-javascript.git#096b5cf00433e126caced46f8719d770611d5900",
+        "@paulhfischer/prettier-config": "git+https://github.com/paulhfischer/prettier-config.git#294e7755b8c6029a5f2f5e51a2398a0b0c65b405",
+        "@paulhfischer/stylelint-config": "git+https://github.com/paulhfischer/stylelint-config.git#d46bd755b1eb6cdea577b29dcd8f274d6fc4630d",
+        "@prettier/plugin-php": "0.25.0",
+        "@stylistic/stylelint-plugin": "5.3.1",
+        "eslint": "10.13.0",
+        "prettier": "3.9.10",
+        "stylelint": "17.16.0",
+        "stylelint-config-html": "2.0.0",
+        "stylelint-config-standard-scss": "17.0.0"
+    },
     "dependencies": {
-        "autoprefixer": "^10.0.1",
-        "css-loader": "^5.0.0",
-        "cssnano": "^4.1.10",
-        "extract-loader": "^5.1.0",
-        "file-loader": "^6.2.0",
-        "postcss": "^8.1.4",
-        "postcss-loader": "^4.0.4",
-        "sass": "^1.27.0",
-        "sass-loader": "^10.0.4",
-        "webpack": "^5.3.0",
-        "webpack-cli": "^4.1.0",
-        "webpack-remove-empty-scripts": "^0.6.3"
+        "autoprefixer": "10.6.1",
+        "cssnano": "9.8.0",
+        "postcss": "8.5.30",
+        "sass": "1.105.2"
     }
 }

@@ -1,39 +1,41 @@
+minimum_pre_commit_version: 4.7.0
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+  - repo: meta
     hooks:
-      - id: check-executables-have-shebangs
-      - id: check-merge-conflict
+      - id: check-hooks-apply
+      - id: check-useless-excludes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
       - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
       - id: end-of-file-fixer
-        exclude: \.min\.(js|css)$
       - id: mixed-line-ending
         args: [--fix=lf]
-        exclude: \.min\.(js|css)$
-  - repo: https://github.com/paulhfischer/prettier-config
-    rev: v1.7.0
-    hooks:
-      - id: lint
-  - repo: https://github.com/paulhfischer/stylelint-config
-    rev: v1.11.2
-    hooks:
-      - id: lint
-  - repo: https://github.com/digitalpulp/pre-commit-php
-    rev: 1.4.0
-    hooks:
-      - id: php-lint-all
-      - id: php-cs
-        args:
-          - --standard=PSR2
-      - id: php-cs-fixer
-        args:
-          - --using-cache no
-      - id: php-stan
+      - id: trailing-whitespace
   - repo: local
     hooks:
-      - id: build
-        name: build
-        entry: yarn run build
-        language: node
-        pass_filenames: false
-        verbose: true
+      - id: eslint
+        name: ESLint
+        entry: node node_modules/eslint/bin/eslint.js --fix --max-warnings=0
+        language: system
+        types: [javascript]
+      - id: stylelint
+        name: Stylelint
+        entry: node node_modules/stylelint/bin/stylelint.mjs --fix --max-warnings=0
+        language: system
+        types: [scss]
+      - id: php-lint
+        name: PHP syntax
+        entry: php -l
+        language: system
+        types: [php]
+      - id: prettier
+        name: Prettier
+        entry: node node_modules/prettier/bin/prettier.cjs --write --list-different --ignore-unknown --log-level=warn
+        language: system
+        types: [file]
+        exclude: ^(package-lock\.json$|images/|styles/)
